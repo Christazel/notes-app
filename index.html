@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="shortcut icon" href="images/favicon.png" type="image/png"/><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/><link rel="manifest" href="manifest.json"/><meta name="theme-color" content="#2196f3"/><title>Aplikasi Cerita</title><script defer="defer" src="app.bundle.js"></script><link href="app.css" rel="stylesheet"></head><body><a href="#mainContent" class="skip-link">Lewati ke Konten Utama</a><header><div class="main-header container"><a class="brand-name" href="#/">Aplikasi Cerita</a><nav id="navigation-drawer" class="navigation-drawer"><ul id="nav-list" class="nav-list"><li><a href="#/">Beranda</a></li><li><a href="#/add">Tambah Cerita</a></li><li><a href="#/login">Login</a></li><li><a href="#/favorites">Favorit</a></li></ul></nav><button id="drawer-button" class="drawer-button" aria-label="Menu Navigasi">☰</button></div></header><main id="mainContent" class="main-content" tabindex="-1"><div id="favoriteButtonContainer"></div></main><footer class="site-footer"><p>&copy; 2025 Christazel Project. All rights reserved.</p></footer><script>if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(registration => {
+            console.log('[SW] Terdaftar:', registration.scope);
+          })
+          .catch(error => {
+            console.error('[SW] Gagal daftar:', error);
+          });
+      });
+    }</script></body></html>
