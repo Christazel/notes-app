@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+
+  <!-- Leaflet CSS & JS (jika digunakan untuk peta) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2196f3" />
+
+  <title>Aplikasi Cerita</title>
+</head>
+
+<body>
+  <!-- Skip to Content -->
+  <a href="#mainContent" class="skip-link">Lewati ke Konten Utama</a>
+
+  <!-- Header -->
+  <header>
+    <div class="main-header container">
+      <a class="brand-name" href="#/">Aplikasi Cerita</a>
+      <nav id="navigation-drawer" class="navigation-drawer">
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#/">Beranda</a></li>
+          <li><a href="#/add">Tambah Cerita</a></li>
+          <li><a href="#/login">Login</a></li>
+          <li><a href="#/favorites">Favorit</a></li>
+        </ul>
+      </nav>
+      <button id="drawer-button" class="drawer-button" aria-label="Menu Navigasi">☰</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent" class="main-content" tabindex="-1">
+    <!-- Diperlukan untuk fitur IndexedDB favorit -->
+    <div id="favoriteButtonContainer"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Christazel Project. All rights reserved.</p>
+  </footer>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(registration => {
+            console.log('[SW] Terdaftar:', registration.scope);
+          })
+          .catch(error => {
+            console.error('[SW] Gagal daftar:', error);
+          });
+      });
+    }
+  </script>
+</body>
+
+</html>
